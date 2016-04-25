@@ -7,4 +7,7 @@ public class Cat {
 	}
 	private int id;
 	
+	public String toString(){
+		return "cat:" + id;
+	}
 }
