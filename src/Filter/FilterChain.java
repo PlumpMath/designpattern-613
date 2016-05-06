@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * Created by Administrator on 2016/5/6 0006.
  */
-public class FilterChain {
+public class FilterChain implements  Filter{
     List<Filter> filters = new ArrayList<>();
     public FilterChain addFilter(Filter f){
         this.filters.add(f);
@@ -19,4 +19,6 @@ public class FilterChain {
         }
         return r;
     }
+
+
 }

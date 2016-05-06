@@ -7,8 +7,10 @@ public class Main {
 		mp.setMsg(msg);
 		FilterChain fc = new FilterChain();
 		fc.addFilter(new HTMLFilter()).
-				addFilter(new SesitiveFilter()).
-				addFilter(new FaceFilter());
+				addFilter(new SesitiveFilter());
+		FilterChain fc2 = new FilterChain();
+		fc2.addFilter(new FaceFilter());
+		fc.addFilter(fc2);
 		mp.setFc(fc);
 		String result = mp.process();
 		System.out.println(result);
