@@ -2,10 +2,17 @@ package Filter;
 
 public class MsgProcessor {
 	private String msg;
-	
-	Filter[] filters = {new HTMLFilter(),new SesitiveFilter()};
-	
-	
+
+	FilterChain fc;
+
+	public FilterChain getFc() {
+		return fc;
+	}
+
+	public void setFc(FilterChain fc) {
+		this.fc = fc;
+	}
+
 	public String getMsg() {
 		return msg;
 	}
@@ -15,11 +22,6 @@ public class MsgProcessor {
 	}
 
 	public String process(){
-		String r = msg;
-		for (Filter f : filters) {
-			r = f.doFilter(r);
-		}
-		
-		return r;
+		return fc.doFilter(msg);
 	}
 }
