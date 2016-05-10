@@ -2,10 +2,12 @@ package Strategy;
 
 public class DataSorter {
 
-	public static void sort(Cat[] a) {
+	public static void sort(Object[] a) {
 		for (int i = a.length; i > 0; i--) {
 			for (int j = 0; j < i - 1; j++) {
-				if (a[j].getHeight() > a[j+1].getHeight()) {
+				Comparable o1 = (Comparable)a[j];
+				Comparable o2 = (Comparable)a[j+1];
+				if (o1.compareTo(o2)==1) {
 					svap(a,j,j+1);
 				}
 			}
@@ -18,8 +20,8 @@ public class DataSorter {
 		a[y] = temp;
 	}
 	
-	private static void svap(Cat[] a, int x, int y) {
-		Cat temp = a[x];
+	private static void svap(Object[] a, int x, int y) {
+		Object temp = a[x];
 		a[x] = a[y];
 		a[y] = temp;
 	}
@@ -31,7 +33,7 @@ public class DataSorter {
 		System.out.println();
 	}
 	
-	public static void p(Cat[] a) {
+	public static void p(Object[] a) {
 		for (int i = 0; i < a.length; i++) {
 			System.out.print(a[i] + " ");
 		}
